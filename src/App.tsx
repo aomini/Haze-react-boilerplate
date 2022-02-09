@@ -1,19 +1,39 @@
 import React from "react";
-import Developers from "./features/Developers";
-import Create from "./features/Developers/Create";
-import List from "./features/Developers/List";
-import Style from "./app.module.scss"
-import "./styles/global.scss"
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import "./styles/global.scss";
+import routes from "./routes";
 
 const App = () => {
-  const [editable, setEditable] = React.useState<number | null>(null)
-
   return (
-    <main className={Style.employees}>
-      <Developers onSetEditable={setEditable} />
-      <List />
-      <Create editable={editable}/>
-    </main>
+    <Router>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/users">Users</Link>
+          </li>
+          <li>
+            <Link to="/developers">Developers</Link>
+          </li>
+        </ul>
+      </nav>
+      <Routes>
+        {routes.map((route) => (
+          <Route
+            key={route.path}
+            path={route.path}
+            element={
+              <React.Suspense fallback={null}>{route.Element}</React.Suspense>
+            }
+          />
+        ))}
+      </Routes>
+    </Router>
   );
 };
 
