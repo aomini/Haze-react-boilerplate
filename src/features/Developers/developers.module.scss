@@ -1,0 +1,23 @@
+.employeeCard {
+  padding: 10px;
+  border: 1px solid #e8e8e8;
+  max-width: 300px;
+  margin-bottom: 20px;
+
+  h2 {
+    text-transform: capitalize;
+    color: red;
+  }
+
+  h3 {
+    color: #818181;
+    font-weight: 300;
+    text-transform: lowercase;
+  }
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20;
+}

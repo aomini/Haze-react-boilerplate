@@ -1,0 +1,3 @@
+{
+  "extends": ["rakeshshrestha", "rakeshshrestha/react"]
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import Style from "./button.module.scss"
 
 export enum Variants{
   contained = 'contained',
@@ -11,6 +12,6 @@ type ButtonProps = {
 }
 
 const Button: React.FC<ButtonProps> = ({variant, onClick = () => {}, children}) => {
-  return <button className={variant} onClick={onClick}>{children}</button>
+  return <button className={Style[variant]} onClick={onClick}>{children}</button>
 }
 export default Button
