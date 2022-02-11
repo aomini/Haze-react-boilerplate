@@ -3,10 +3,8 @@ import clsx from "clsx";
 import { AlphanumericType, InputKeyboardEvent, InputType } from "../../types";
 // import Style from "./text-field.module.scss"
 
-
 interface ITextFieldProps {
   name: string;
-  // react ref
   value: AlphanumericType;
   id: string;
   onChange: (e: InputKeyboardEvent) => void;
@@ -14,6 +12,7 @@ interface ITextFieldProps {
   onKeyUp?: (e: React.FormEvent<HTMLInputElement>) => void;
   onKeyDown?: (e: React.FormEvent<HTMLInputElement>) => void;
   type?: InputType;
+  // react ref
   refer?: string;
   icon?: React.ReactNode;
   autoFocus?: boolean;
