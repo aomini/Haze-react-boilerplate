@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import "./styles/global.scss";
 import routes from "./routes";
+import "./resources/styles/global.scss";
 
 const App = () => {
   return (
