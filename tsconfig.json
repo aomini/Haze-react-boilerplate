@@ -15,7 +15,12 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "paths": {
+      "utility/*": ["./src/utility/*"],
+      "@/components/*": ["./src/components/*"],
+      "configs/*": ["./src/configs/*"]
+    }
   },
   "include": ["src"]
 }
