@@ -2,31 +2,18 @@ import React from "react";
 import {
   useAddDevelopersMutation,
   useFetchDevelopersQuery,
-  Developer,
   useFetchDeveloperQuery,
   useUpdateDeveloperMutation,
 } from "../developers-api";
 import "./create.css";
 
-interface iCreateProps {
-  editable?: number | null;
-}
-
-interface Field {
-  name: "name" | "position";
-  type: string;
-  label: string;
-}
-
-const fields: Field[] = [
+const fields = [
   { name: "name", label: "Title", type: "text" },
   { name: "position", label: "Position", type: "text" },
 ];
 
-type DeveloperWithoutId = Omit<Developer, "id">;
-
-const Create = ({ editable }: iCreateProps) => {
-  const [values, setValues] = React.useState<DeveloperWithoutId>({
+const Create = ({ editable }) => {
+  const [values, setValues] = React.useState({
     name: "",
     position: "",
   });
@@ -40,7 +27,7 @@ const Create = ({ editable }: iCreateProps) => {
     }
   );
   const [addDevelopers] = useAddDevelopersMutation();
-  const [updateDeveloper] = useUpdateDeveloperMutation()
+  const [updateDeveloper] = useUpdateDeveloperMutation();
 
   React.useEffect(() => {
     if (!isError && editableDeveloper) {
@@ -49,7 +36,7 @@ const Create = ({ editable }: iCreateProps) => {
     }
   }, [editableDeveloper, isError]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setValues((prev) => ({
       ...prev,
@@ -57,9 +44,9 @@ const Create = ({ editable }: iCreateProps) => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLElement>) => {
-    e.preventDefault(); 
-    const fn = editable ? updateDeveloper: addDevelopers;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const fn = editable ? updateDeveloper : addDevelopers;
     fn({
       id: editable ? editable : data.length + 1,
       ...values,

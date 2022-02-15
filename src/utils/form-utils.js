@@ -5,6 +5,6 @@
  * @example - This is just a demonstration
  * @returns string
  */
-export const destructureValue = (entity: { value: string }) => {
+export const destructureValue = (entity) => {
   return entity.value;
 };

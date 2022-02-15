@@ -1,11 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-export interface Developer {
-  id: number;
-  name: string;
-  position: string;
-}
-
 export const developersApiSlice = createApi({
   reducerPath: "developers-api",
   baseQuery: fetchBaseQuery({
@@ -18,28 +12,25 @@ export const developersApiSlice = createApi({
   tagTypes: ["Developer"],
   endpoints(builder) {
     return {
-      fetchDevelopers: builder.query<Developer[], void>({
+      fetchDevelopers: builder.query({
         query: () => "/developers",
         providesTags: (result) =>
           result
             ? [
-                ...result.map(
-                  ({ id }) =>
-                    ({
-                      type: "Developer",
-                      id,
-                    } as const)
-                ),
+                ...result.map(({ id }) => ({
+                  type: "Developer",
+                  id,
+                })),
                 { type: "Developer", id: "List" },
               ]
             : [{ type: "Developer", id: "List" }],
       }),
-      fetchDeveloper: builder.query<Developer, number | void>({
+      fetchDeveloper: builder.query({
         query: (id) => `/developers/${id}`,
         providesTags: (result, error, id) =>
           id ? [{ type: "Developer", id }] : [],
       }),
-      addDevelopers: builder.mutation<Developer, Developer>({
+      addDevelopers: builder.mutation({
         query: (body) => ({
           url: "/developers",
           method: "POST",
@@ -51,7 +42,7 @@ export const developersApiSlice = createApi({
         //   return response;
         // },
       }),
-      updateDeveloper: builder.mutation<Developer, Developer>({
+      updateDeveloper: builder.mutation({
         query: ({ id, ...body }) => ({
           url: `/developers/${id}`,
           method: "PUT",

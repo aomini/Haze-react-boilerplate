@@ -1,34 +1,8 @@
 import * as React from "react";
 import clsx from "clsx";
-import { AlphanumericType, InputKeyboardEvent, InputType } from "../../types";
 // import Style from "./text-field.module.scss"
 
-interface ITextFieldProps {
-  name: string;
-  value: AlphanumericType;
-  id: string;
-  onChange: (e: InputKeyboardEvent) => void;
-  onBlur?: (e: InputKeyboardEvent) => void;
-  onKeyUp?: (e: React.FormEvent<HTMLInputElement>) => void;
-  onKeyDown?: (e: React.FormEvent<HTMLInputElement>) => void;
-  type?: InputType;
-  // react ref
-  refer?: string;
-  icon?: React.ReactNode;
-  autoFocus?: boolean;
-  className?: string;
-  noLabel?: boolean;
-  label?: string;
-  touched?: boolean;
-  disabled?: boolean;
-  error?: boolean;
-  placeholder?: string;
-  currency?: number;
-  min?: number;
-  max?: number;
-}
-
-const TextField = (props: ITextFieldProps) => {
+const TextField = (props) => {
   const {
     name,
     refer,

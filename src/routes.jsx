@@ -6,16 +6,10 @@ const User = React.lazy(() => import("./pages/User"));
 const About = React.lazy(() => import("./pages/About"));
 const Home = React.lazy(() => import("./pages/Home"));
 
-interface IRoutes {
-  path: string;
-  Element: React.ReactNode;
-  protected?: boolean;
-}
-
-const routes: IRoutes[] = [
+const routes = [
   {
     path: "/users",
-    Element: <User/>,
+    Element: <User />,
     // Auth pages
     protected: true,
   },
@@ -25,7 +19,7 @@ const routes: IRoutes[] = [
   },
   {
     path: "/developers",
-    Element: <DevelopersPage />
+    Element: <DevelopersPage />,
   },
   {
     path: "/",
