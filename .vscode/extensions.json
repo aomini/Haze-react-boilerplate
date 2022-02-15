@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "formulahendry.auto-rename-tag",
+    "mgmcdermott.vscode-language-babel",
+    "equinusocio.vsc-community-material-theme",
+    "dsznajder.es7-react-js-snippets",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "wix.vscode-import-cost",
+    "yzhang.markdown-all-in-one",
+    "pkief.material-icon-theme",
+    "esbenp.prettier-vscode",
+    "syler.sass-indented"
+  ]
+}
