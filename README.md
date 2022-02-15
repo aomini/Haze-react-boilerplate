@@ -33,6 +33,7 @@ Currently, there are two boiler plates for react one is with-typescript (branch-
 4. Basic examples
 5. Documentation
 6. Recommendated extensions & settings for vscode.
+7. React-rewired to override settings and maintain aliases. [TODO]
 
 ## Installation
 
@@ -159,7 +160,7 @@ Significant rules to follow with eslint:
 
   /**
    ❗  The Link and moment increases the bundle size unnecessarily.
-   🚨 The moment import takes more than a mb. Where next js standard believes below 90kb is a good bundle.
+   🚨 The moment import takes more than a mb. Where frontend standard believes below 90kb is a good bundle.
    */
 
   const Example = () => {
@@ -171,8 +172,6 @@ Significant rules to follow with eslint:
 
   ```jsx
   import React from 'react';
-  import Link from 'next/Link';
-  import moment from 'moment';
 
   const Example = () => {
     return <h1>Rakesh Shrestha</h1>;
@@ -227,12 +226,16 @@ Significant rules to follow with eslint:
 - Use `<></>` instead of `<React.fragment />`. Only use the longer version when you need to pass `key` as a prop in a fragment.
 - Event handlers should follow the naming convention of `handle<Event-name>`. _example `handleClick, handlePurchase` etc_. But when an event is passed as a prop to a child then do `onHandle<Event-name>`. \*example `onHandleClick={handleClick}`.This will help to differentiate what event is coming from here with just the name.
 - Don't use `useMemo` & `React.memo()` as a means to memoize your application without proper performance test. If used without caution they can increase the memory and slow down the performance of the application.
-- When you have a medium to large component and you are sure that the component won't be loaded for all users then that component should be lazy loaded. If not lazy loaded then the component will bundle itself to the parent component and users have to download extra bytes of data for things that they don't use. Lazy imports increases performance.
-- Images used should be subject to the nextjs `Image` component with proper height and width. Image component will optimize the component according to devices and lazy load the image itself. Also, with fixed height and width we will decrease the amount of layout / content shifting which leads to better user experience and better seo for performance.
+- When you have a medium to large component and you are sure that the component won't be loaded for all users then that component should be lazy loaded. If not lazy loaded then the component will bundle itself to the parent component and users have to download extra bytes of data for things that they don't use. Lazy imports increases performance. Use `React.lazy()` but it should also have `React.Suspense`.
+- Image component will optimize the component according to devices and lazy load the image itself. Also, with fixed height and width we will decrease the amount of layout / content shifting which leads to better user experience and better seo for performance.
 - Reduce global css and increase local component css.
 - Nextjs doesn't support component level css imports because they'll pollute the global css styles. So, use scoped css like `.module.css`, `.module.scss`, `css-in-js library`. You'll be working mostly on `styled-components` a css-in-js library.
 - Never ❌ pollute the global environment like `window`. If you have to then implement it wisely.
 - Don't import library unnecessarily. Every libraries are not optimized. The smaller the dependencies the easier to maintain.
+
+## Reporting
+
+If you find any bugs or grammatical errors please make a pull request.
 
 ## References
 
