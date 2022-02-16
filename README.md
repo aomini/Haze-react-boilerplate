@@ -1,34 +1,34 @@
 # React Boiler Plate
 
-This project contains boiler plate of react for @hazesoft.co. It is created with the best practices, structure and tech stack in mind so that you can handle all of the problems and integration easily. Remaining integration with new tech stacks should be discussed first before implementation. Every hazesoft project must use one of the boiler plates available in the repository.
+This project contains boiler plate of react for [@hazesoft.co](https://hazesoft.co/). It is created with the best practices, structure and tech stack in mind so that you can handle all of the problems and integration easily. Remaining integration with new tech stacks should be discussed first before implementation. Every hazesoft react project must use one of the boiler plates available in the repository.
 
-Currently, there are two boiler plates for react one is with-typescript (branch-main) and another is without-typescript (branch-without-ts). If you are comfortable with typescript use the branch-main (highly recommended) if you are not then use branch-without-ts.
+Currently, there are two boiler plates for react one is [with-typescript](https://github.com/aomini/Haze-react-boilerplate/tree/main) (branch-main) and another is [without-typescript](https://github.com/aomini/Haze-react-boilerplate/tree/without-typescript) (branch-without-ts). If you are comfortable with typescript use the branch-main (highly recommended) if you are not then use branch-without-ts.
 
 ## Libraries used in the boilerplate:
 
-1. react
-2. react-dom
-3. react-router-dom
-4. typescript
-5. redux-toolkit
-6. clsx
+1. [react](https://reactjs.org/)
+2. [react-dom](https://reactjs.org/docs/react-dom.html)
+3. [react-router-dom](https://reactrouter.com/docs/en/v6)
+4. [typescript](https://www.typescriptlang.org/docs/)
+5. [redux-toolkit](https://redux-toolkit.js.org/introduction/getting-started)
+6. [clsx](https://www.npmjs.com/package/clsx)
 
 ## Libraries integration on the future
 
 > This libraries are not currently integrated on the boilerplate because lot of the developers are not quite comfortable or haven't worked with them. But this libraries are necessary to implement because of the benefits they provide. If you don't know how to use them please start learning them in order as this will be someday integrated on the primary boilerplate.
 
-1. storybook
-2. jest
-3. react-testing-library
-4. cypress
-5. tailwindcss
+1. [storybook](https://storybook.js.org/)
+2. [jest](https://jestjs.io/)
+3. [react-testing-library](https://testing-library.com/docs/react-testing-library/intro/)
+4. [cypress](https://www.cypress.io/)
+5. [tailwindcss](https://tailwindcss.com/)
 
 ## For DX (Developer's eXperience)
 
 > We are also concern about the comfortabilty, adjustment, & effectiveness of developers while working on this boiler plate. So, we have configured and added few things to help you.
 
-1. eslint
-2. prettier
+1. [eslint](.eslintrc)
+2. [prettier](.prettierrc)
 3. Proper structure
 4. Basic examples
 5. Documentation
@@ -54,12 +54,12 @@ Currently, there are two boiler plates for react one is with-typescript (branch-
 
 The project root directory contains configuration and dotfiles.
 
-- .eslintrc contains the eslint configurations and rules.
-- .prettierrc is the prettier config file to maintain the consistency of prettier in every developers.
-- .vscode contains the vscode configs files best for the project. You can remove this if you don't want or add new things to it.
-- .gitignore is list of files/folders for git to ignore.
-- db.json is for json-server (required only to view project examples).
-- tsconfig.json is the typescript configuration file.
+- [.eslintrc](.eslintrc) contains the eslint configurations and rules.
+- [.prettierrc](.prettierrc) is the prettier config file to maintain the consistency of prettier in every developers.
+- [.vscode](.vscode/extensions.json) contains the vscode configs files best for the project. You can remove this if you don't want or add new things to it.
+- [.gitignore](.gitignore) is list of files/folders for git to ignore.
+- [db.json](db.json) is for [json-server](https://www.npmjs.com/package/json-server) (required only to view project examples).
+- [tsconfig.json](tsconfig.json) is the typescript configuration file.
 
 ## Project structure
 
@@ -96,7 +96,7 @@ You can now simply do `@/components/Button` instead of `../../../components/Butt
 
 An alias is another name for a path or file.
 
-1. Go to `config-overrides.js` file in root directory.
+1. Go to [config-overrides.js](config-overrides.js) file in root directory.
 2. Now add a alias like the one's you see in the file. Example:
 
 ```js
