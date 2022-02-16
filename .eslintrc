@@ -1,3 +1,21 @@
 {
-  "extends": ["rakeshshrestha", "rakeshshrestha/react", "rakeshshrestha/import"]
+  "extends": [
+    "rakeshshrestha",
+    "rakeshshrestha/react",
+    "rakeshshrestha/import"
+  ],
+  "rules": {
+    "import/order": [
+      "warn",
+      {
+        "pathGroups": [
+          {
+            "pattern": "@/**",
+            "group": "external"
+          }
+        ]
+      }
+    ],
+    "import/no-unresolved": "off"
+  }
 }

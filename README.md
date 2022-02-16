@@ -33,7 +33,7 @@ Currently, there are two boiler plates for react one is with-typescript (branch-
 4. Basic examples
 5. Documentation
 6. Recommendated extensions & settings for vscode.
-7. React-rewired to override settings and maintain aliases. [TODO]
+7. React-rewired to override settings and maintain aliases.
 
 ## Installation
 
@@ -73,6 +73,49 @@ The project root directory contains configuration and dotfiles.
 - `utils/` should contain the utilities functions.
 - `src/routes.tsx` contains the routing of the project.
 - More about the folders inside the component below.
+
+## Module resolution
+
+During relative imports we have to do "../../../../components" to import files but this has lot of impacts in our codebase. First it's not efficient to import files like "../../../.." and secondly if you were to move the file where import is being done then you have to update the relative import as well.
+
+So, this project has support for absolute imports which is far more efficient. Webpack resolve.alias is used to make our modules absolute. Create react app doesn't have support for overriding webpack configs so we are using `react-scripts-rewired`.
+
+### List of supported aliases
+
+- @/components
+- @/features
+- @/pages
+- @/hooks
+- @/resources
+- @/types
+- @/utils
+
+You can now simply do `@/components/Button` instead of `../../../components/Button` anywhere in your file.
+
+### Create own alias
+
+An alias is another name for a path or file.
+
+1. Go to `config-overrides.js` file in root directory.
+2. Now add a alias like the one's you see in the file. Example:
+
+```js
+ alias: {
+    '@/components': path.resolve(__dirname, './src/components'),
+    '@/features': path.resolve(__dirname, './src/features'),
+    '@/pages': path.resolve(__dirname, './src/pages'),
+    '@/hooks': path.resolve(__dirname, './src/hooks'),
+    '@/resources': path.resolve(__dirname, './src/resources'),
+    '@/types': path.resolve(__dirname, './src/types'),
+    '@/utils': path.resolve(__dirname, './src/utils'),
+    // This is our new alias
+    '@/example': path.resolve(__dirname, "./src/some-path-to-a-folder")
+  },=
+```
+
+3. Currently, our aliases are mapped with `@/alias-name`, we are doing this because it easily helps the developer to understand that tne import is custom alias.
+4. You can create any type of alias that you want.
+5. If you are using typescript version of this project then you also have to add a path mapping in `tsconfig.json`.
 
 ## Asynchronous requests
 
